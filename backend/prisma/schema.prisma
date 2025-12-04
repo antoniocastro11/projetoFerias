@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+
+model Idea {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  stack       String
+  ideaType    IdeaType
+  createdAt   DateTime @default(now())
+}
+
+enum IdeaType {
+  WebApp
+  MobileApp
+  Game
+  Automation
+}
