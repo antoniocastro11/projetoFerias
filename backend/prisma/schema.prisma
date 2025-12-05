@@ -1,13 +1,12 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat = "cjs"
 }
 
 datasource db {
   provider = "postgresql"
 }
-
-
 
 model Idea {
   id          Int      @id @default(autoincrement())
@@ -26,6 +25,7 @@ enum IdeaType {
   Game
   Automation
 }
+
 
 model User {
   id Int @id @default(autoincrement())
