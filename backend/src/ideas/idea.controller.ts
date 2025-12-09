@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { IdeaService } from './idea.service';
+import { IdeaDto } from './dto/idea.dto';
 
 @Controller()
 export class IdeaController {
@@ -7,7 +8,7 @@ export class IdeaController {
   
 
   @Post('ideas/new')
-  createIdea(@Body() data) {
+  createIdea(@Body() data: IdeaDto) {
     return this.ideaService.createIdea(data);
   }
 
@@ -21,5 +22,3 @@ export class IdeaController {
     return this.ideaService.getAllIdeas();
   }
 }
-
-
